@@ -6,7 +6,7 @@ from django.contrib.auth import login, logout
 import time
 import pyqrcode
 from .models import Book
-from pyzbar.pyzbar import decode
+#from pyzbar.pyzbar import decode
 from PIL import Image
 import webbrowser
 import os
@@ -17,8 +17,9 @@ def index(request):
     if request.method == 'POST':
         form = ScanForm(request.POST, request.FILES)
         if form.is_valid():
-            d = decode(Image.open(form.cleaned_data['qr']))
-            return redirect(d[0].data.decode('ascii'))
+            #d = decode(Image.open(form.cleaned_data['qr']))
+            #d[0].data.decode('ascii')
+            return redirect('/')
     else:
         form = ScanForm()
         messages.error(request, 'возникла ошибка')
