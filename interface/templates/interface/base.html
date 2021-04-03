@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">QR-учебники</a>
+              <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                  <li class="nav-item">
+
+                    <a class="nav-link active" aria-current="page" href="/">Главная</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="/books">Добавление учебников</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="/yourlib">каталог учебников</a>
+                  </li>
+                </ul>
+              </div>
+                <style>
+                    #reg{
+                        margin-right:30px;
+                    }
+                    #profile, #logout{
+                        margin-right:40px;
+                    }
+                </style>
+              {% if request.user.is_authenticated %}
+              <a href="/login" id="profile">{{ user.username }}</a>
+              <a href="/logout" id="logout">Выход</a>
+              {% else %}
+              <a href="/register" id="reg">регистрация</a>
+              <a href="/login">вход</a>
+              {% endif %}
+            </div>
+        </nav>
+    </header>
+
+    <main class="flex-shrink-0">
+      <div class="container">
+          {% block content %} {% endblock %}
+      </div>
+    </main>
+
+</body>
+</html>

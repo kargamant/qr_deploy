@@ -1,0 +1,33 @@
+{% extends 'interface/base.html' %}
+
+{% block title %}
+    Каталог
+{% endblock %}
+
+{% block content %}
+    <style>
+        h1{
+            margin-top: 100px;
+        }
+    </style>
+    <h1>Каталог учебников</h1>
+    <div>
+        {% for el in book_items %}
+            <div class="col-md-6">
+              <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <a href="{{ el.link }}" class="mb-0">{{ el.title }}</a>
+                <div class="col-auto d-none d-lg-block">
+                  <img src="{{ el.photo.url }}" class="bd-placeholder-img" width="200" height="250" role="img"></img>
+                </div>
+                <style>
+                    #qr{
+                        margin-top:60px;
+                    }
+                </style>
+                <img src="{{ el.qr }}" alt="" height="100px" width="100px" id="qr">
+              </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

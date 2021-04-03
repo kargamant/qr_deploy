@@ -1,0 +1,17 @@
+{% extends 'interface/base.html' %}
+
+{% block title %}
+    QR_code
+{% endblock %}
+
+{% block content %}
+    <style>
+        h3{
+           margin-top:100px;
+        }
+    </style>
+    <h3>QR-код для вашего учебника</h3>
+    <img src="{{ image }}">
+    <p>Можете сохранить его, нажав на QR-код правой кнопкой мыши и выбрав пункт "сохранить картинку как"</p>
+
+{% endblock %}

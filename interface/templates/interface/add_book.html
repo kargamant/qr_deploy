@@ -1,0 +1,22 @@
+{% extends 'interface/base.html' %}
+
+{% block title %}
+    Главная страница
+{% endblock %}
+
+{% block content %}
+    <style>
+        form{
+            margin-top:75px;
+        }
+        h3{
+            margin-top:100px;
+        }
+    </style>
+    <h3>Введите данные учебника</h3>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-outline-success" type="submit">Добавить учебник</button>
+    </form>
+{% endblock %}
