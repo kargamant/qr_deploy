@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'x$i1r-ygqux*2tl$386bkmlv265ot!)2t^&sf_)3g^9pfptt8^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['qrcodebooks.herokuapp.com', '127.0.0.1']
 
